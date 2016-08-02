@@ -25,6 +25,7 @@
  */
 
 abstract class MagentoHackathon_FastSimpleExport_Model_Export_Adapter_Abstract
+    extends Mage_ImportExport_Model_Export_Adapter_Abstract
 {
     /**
      * Destination file path.
@@ -41,18 +42,6 @@ abstract class MagentoHackathon_FastSimpleExport_Model_Export_Adapter_Abstract
     protected $_headerCols = null;
 
     /**
-     * Adapter object constructor.
-     *
-     * @param string $destination OPTIONAL Destination file path.
-     * @throws Exception
-     * @return void
-     */
-    final public function __construct($destination = null)
-    {
-        $this->_init();
-    }
-
-    /**
      * Method called as last step of object instance creation. Can be overridden in child classes.
      *
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract
@@ -61,13 +50,6 @@ abstract class MagentoHackathon_FastSimpleExport_Model_Export_Adapter_Abstract
     {
         return $this;
     }
-
-    /**
-     * Get contents of export file.
-     *
-     * @return string
-     */
-    abstract public function getContents();
 
     /**
      * MIME-type for 'Content-Type' header.
@@ -109,12 +91,4 @@ abstract class MagentoHackathon_FastSimpleExport_Model_Export_Adapter_Abstract
         }
         return $this;
     }
-
-    /**
-     * Write row data to source file.
-     *
-     * @param array $rowData
-     * @return Mage_ImportExport_Model_Export_Adapter_Abstract
-     */
-    abstract public function writeRow(array $rowData);
 }
