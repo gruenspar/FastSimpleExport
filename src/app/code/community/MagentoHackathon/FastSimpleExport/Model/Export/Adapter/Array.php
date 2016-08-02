@@ -13,4 +13,16 @@ class MagentoHackathon_FastSimpleExport_Model_Export_Adapter_Array extends Magen
     {
         return $this->_content;
     }
+
+    /**
+     * Compatibility method. Ensure compatibility with core class.
+     * 
+     * @param array $headerCols
+     * 
+     * @return null
+     */
+    public function setHeaderCols(array $headerCols)
+    {
+        return null;
+    }
 }
