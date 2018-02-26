@@ -25,4 +25,16 @@ class MagentoHackathon_FastSimpleExport_Model_Export_Adapter_Array extends Magen
     {
         return null;
     }
+
+    /**
+     * If a tmp file was created on export, remove it.
+     *
+     * @return void
+     */
+    public function destruct()
+    {
+        if (!empty($this->_destination) && file_exists($this->_destination)) {
+            unlink($this->_destination);
+        }
+    }
 }
